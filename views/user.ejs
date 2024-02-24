@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <table>
+        <tr>
+            <th> Sr No.</th>
+           <th> id </th>
+            <th> email </th>
+            <th> username </th> 
+            <th> Edit </th>
+            <th> Delete </th>
+        </tr>
+        
+        <% let cnt =1; for(let user of result){ %>
+            <tr>
+                <td> <%= cnt %> </td>
+                <td> <%= user.id %></td>
+                <td> <%= user.email %></td>
+                <td> <%= user.username %></td>
+                <td><form method="get" action="/user/<%= user.id %>/edit"><button>Edit</button></form></td>
+                <td><form method="post" action="/user/<%= user.id %>?_method=DELETE"><button>Delete</button></form></td>
+            </tr>
+        <% cnt++; } %>
+    </table>
+</body>
+</html>
